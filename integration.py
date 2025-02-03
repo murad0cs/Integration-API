@@ -48,7 +48,7 @@ def post_country_details(country):
             return None
         elif response.status_code == 500:
             attempt += 1
-            wait_time = 2 ** attempt  # Exponential backoff
+            wait_time = 2 ** attempt  # Exponential backoff/retry strategy define
             print(f"Error 500: Internal Server Error. Retrying in {wait_time} seconds...")
             time.sleep(wait_time)
         else:
